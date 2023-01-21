@@ -1,8 +1,10 @@
+var api_key = config.API_KEY;
+
 async function fetchData() {
 	const options = {
 		method: 'GET',
 		headers: {
-			'X-RapidAPI-Key': '58a419ef3amshf0356c674257641p181b37jsnd43b8bf5e5e5',
+			'X-RapidAPI-Key': api_key,
 			'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com'
 		}
 	};
