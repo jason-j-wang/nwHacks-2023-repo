@@ -23,6 +23,9 @@ async function fetchData() {
 	var currentScore = home_score + " - " + away_score;
 
 	document.getElementById("score").innerHTML= currentScore;
-	
+
+	var sport = record['data']['0']['sport']['name']
+
+	document.getElementById("gameType").innerHTML= sport;
 }
 fetchData();
