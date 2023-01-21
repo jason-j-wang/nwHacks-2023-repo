@@ -27,5 +27,26 @@ async function fetchData() {
 	var sport = record['data']['0']['sport']['name']
 
 	document.getElementById("gameType").innerHTML= sport;
+
+	// get list of current games for dropdown
+	const dropDown = document.getElementById("dropdown");
+	const allGamesData = record['data'];
+	for (let key in allGamesData) {
+		let option = document.createElement("option");
+		option.setAttribute('value', allGamesData[key]['name']);
+
+		let optionText = document.createTextNode(allGamesData[key]['name']);
+		option.appendChild(optionText);
+
+		dropDown.appendChild(option);
+
+	}
+
+}
+
+function fetchAllGames() {
+
+
+
 }
 fetchData();
