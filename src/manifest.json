@@ -4,8 +4,14 @@
   "description": "live sport scores",
   "manifest_version": 3,
   "author": "CJS",
-  "action":{
+  "action": {
     "default_popup": "popup/index.html",
     "default_title": "Live Scores"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/"],
+      "js": ["scripts/script.js"]
+    }
+  ]
 }
