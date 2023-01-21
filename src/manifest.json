@@ -7,11 +7,5 @@
   "action": {
     "default_popup": "popup/index.html",
     "default_title": "Live Scores"
-  },
-  "content_scripts": [
-    {
-      "matches": ["*://*/"],
-      "js": ["scripts/script.js"]
-    }
-  ]
+  }
 }
