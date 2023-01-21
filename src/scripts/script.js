@@ -13,10 +13,10 @@ async function fetchData() {
     const record = await res.json();
 	console.log(record)
 
-	var home_name = record['data']['0']['home_team']['0']['name'];
-    console.log(home_name);
-	//document.getElementById("team1").innerHTML = record.data[0].date;
-
+	var home_name = record['data'][0]['home_team']['name'];
+	var away_name = record['data'][0]['away_team']['name'];
+	document.getElementById("team1").innerHTML = home_name;
+	document.getElementById("team2").innerHTML = away_name;
 	
 }
 fetchData();
