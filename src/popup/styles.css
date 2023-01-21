@@ -1,8 +1,3 @@
-th {
-    text-align: center;
-  
-}
-
 td {
     text-align: center;
    
@@ -13,3 +8,6 @@ table {
     margin: auto;
 }
 
+body {
+    background-image: url("https://freedesignfile.com/upload/2012/09/light-Circle1.jpg");
+}
