@@ -14,22 +14,23 @@ async function fetchData() {
 	return record;
 }
 
-async function loadPage() {
-	const record = await fetchData();
-	console.log(record);
+async function findGame(record) {
+	return 0;
+}
 
-	var home_name = record['data'][0]['home_team']['name'];
-	var away_name = record['data'][0]['away_team']['name'];
+async function loadPage(record, game_idx) {
+	var home_name = record['data'][game_idx]['home_team']['name'];
+	var away_name = record['data'][game_idx]['away_team']['name'];
 	document.getElementById("team1").innerHTML = home_name;
 	document.getElementById("team2").innerHTML = away_name;
 
-	var home_score = record['data']['0']['home_score']['current'];
-	var away_score = record['data']['0']['away_score']['current'];
+	var home_score = record['data'][game_idx]['home_score']['current'];
+	var away_score = record['data'][game_idx]['away_score']['current'];
 	var currentScore = home_score + " - " + away_score;
 
 	document.getElementById("score").innerHTML= currentScore;
 
-	var sport = record['data']['0']['sport']['name']
+	var sport = record['data'][game_idx]['sport']['name'];
 
 	document.getElementById("gameType").innerHTML= sport;
 
@@ -48,4 +49,12 @@ async function loadPage() {
 	}
 }
 
-loadPage()
+async function runAll() {
+	const record = await fetchData();
+	var game_idx = await findGame(record);
+	console.log(record);
+	console.log(game_idx);
+	await loadPage(record, game_idx);
+}
+
+runAll();
