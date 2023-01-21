@@ -11,7 +11,12 @@ async function fetchData() {
 	
 	const res = await fetch('https://sportscore1.p.rapidapi.com/events/live?page=1', options)
     const record = await res.json();
-	console.log(record)
+	return record;
+}
+
+async function loadPage() {
+	const record = await fetchData();
+	console.log(record);
 
 	var home_name = record['data'][0]['home_team']['name'];
 	var away_name = record['data'][0]['away_team']['name'];
@@ -41,12 +46,6 @@ async function fetchData() {
 		dropDown.appendChild(option);
 
 	}
-
 }
 
-function fetchAllGames() {
-
-
-
-}
-fetchData();
+loadPage()
