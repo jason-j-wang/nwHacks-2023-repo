@@ -17,6 +17,12 @@ async function fetchData() {
 	var away_name = record['data'][0]['away_team']['name'];
 	document.getElementById("team1").innerHTML = home_name;
 	document.getElementById("team2").innerHTML = away_name;
+
+	var home_score = record['data']['0']['home_score']['current'];
+	var away_score = record['data']['0']['away_score']['current'];
+	var currentScore = home_score + " - " + away_score;
+
+	document.getElementById("score").innerHTML= currentScore;
 	
 }
 fetchData();
