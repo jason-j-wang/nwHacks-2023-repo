@@ -1,0 +1,11 @@
+{
+  "name": "Live Sports Scores",
+  "version": "1.0.0",
+  "description": "live sport scores",
+  "manifest_version": 3,
+  "author": "CJS",
+  "action":{
+    "default_popup": "index.html",
+    "default_title": "Live Scores"
+  }
+}
