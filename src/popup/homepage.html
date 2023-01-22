@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container mt-3" style="width: 500px; height: 175px">
+<div class="container mt-3" style="width: 600px; height: 175px">
     <h2 id="gameType" class="text-center" multiple>Live Game</h2>
     <table class="table table-bordered">
        
@@ -32,10 +32,17 @@
        
     </table>
 
-    <select name="..." id="dropdown">
-        <option value="new">Find another game</option>
-      
-    </select>
+    <form id="user_input">
+        <div style="width: 87%; float: left">
+            <select name="dropdownlist" id="dropdown" form="user_input" style="width: 420px">
+                <option value="new">Find another game</option>
+            
+            </select>
+        </div>
+        <div style="margin-left: 13%">
+            <input type="submit">
+        </div>
+    </form>
 
 </div>
 </body>
