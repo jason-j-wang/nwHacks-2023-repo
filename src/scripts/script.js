@@ -29,7 +29,6 @@ async function findGame(record) {
 	game_id = game_id.game_id;
 	for (let idx = 0; idx < num_games; idx++) {
 		var cur_game_id = record['data'][idx]['id']
-		console.log(cur_game_id);
 		if (cur_game_id == game_id) {
 			await chrome.storage.local.set({
 				'game_id': cur_game_id
@@ -72,7 +71,6 @@ async function loadPage(record, game_idx) {
 		option.appendChild(optionText);
 
 		dropDown.appendChild(option);
-
 	}
 }
 
@@ -80,7 +78,6 @@ async function runAll() {
 	const record = await fetchData();
 	var game_idx = await findGame(record);
 	console.log(record);
-	console.log(game_idx);
 	await loadPage(record, game_idx);
 }
 
