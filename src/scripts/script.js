@@ -14,6 +14,10 @@ async function fetchData() {
 	return record;
 }
 
+function setGame() {
+	
+}
+
 async function findGame(record) {
 	var num_games = record['meta']['to'];
 	try {
@@ -95,6 +99,8 @@ async function loadPage(record, game_idx) {
 }
 
 async function runAll() {
+	document.getElementById("submit").addEventListener("click", setGame);
+
 	const record = await fetchData();
 	var game_idx = await findGame(record);
 	console.log(record);
