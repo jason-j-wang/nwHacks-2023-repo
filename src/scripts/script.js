@@ -70,6 +70,15 @@ async function loadPage(record, game_idx) {
 	var time = record['data'][game_idx]['status_more'];
 	document.getElementById("time").innerHTML= time;
 
+	// load logo
+	if (record['data'][game_idx]['home_team']['has_logo']) {
+		let homeLogoSrc = record['data'][game_idx]['home_team']['logo']
+		document.getElementById("homeLogo").src=homeLogoSrc;
+	}
+	if (record['data'][game_idx]['away_team']['has_logo']) {
+		let awayLogoSrc = record['data'][game_idx]['away_team']['logo']
+		document.getElementById("awayLogo").src=awayLogoSrc;
+	}
 
 	// get list of current games for dropdown
 	const dropDown = document.getElementById("dropdown");
