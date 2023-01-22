@@ -52,12 +52,20 @@ async function loadPage(record, game_idx) {
 	// team names
 	var home_name = record['data'][game_idx]['home_team']['name'];
 	var away_name = record['data'][game_idx]['away_team']['name'];
-	document.getElementById("team1").innerHTML = home_name;
-	document.getElementById("team2").innerHTML = away_name;
+	
+	document.getElementById("team1").innerHTML = home_name.bold();
+	document.getElementById("team1").style.textShadow = "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"; 
+	document.getElementById("team1").style.color = "white";
+	document.getElementById("team1").style.fontSize = "20px";
+	document.getElementById("team2").innerHTML = away_name.bold();
+	document.getElementById("team2").style.textShadow = "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"; 
+	document.getElementById("team2").style.color = "white";
+	document.getElementById("team2").style.fontSize = "20px";
 
 	// sport type
 	var sport = record['data'][game_idx]['sport']['name'];
-	document.getElementById("gameType").innerHTML= sport;
+	document.getElementById("gameType").innerHTML= sport.bold();
+	document.getElementById("gameType").style.fontSize = "30px";
 
 	// score
 	if (sport == "Tennis") {
@@ -68,11 +76,15 @@ async function loadPage(record, game_idx) {
 		var away_score = record['data'][game_idx]['away_score']['current'];
 	}
 	var currentScore = home_score + " - " + away_score;
-	document.getElementById("score").innerHTML= currentScore;
+	document.getElementById("score").innerHTML= currentScore.bold();
+	document.getElementById("score").style.textShadow = "-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF"; 
+	document.getElementById("score").style.color = "black";
 
 	// time
 	var time = record['data'][game_idx]['status_more'];
-	document.getElementById("time").innerHTML= time;
+	document.getElementById("time").innerHTML= time.bold();
+	document.getElementById("time").style.textShadow = "-1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF"; 
+	document.getElementById("time").style.color = "black";
 
 	// load logo
 	if (record['data'][game_idx]['home_team']['has_logo']) {

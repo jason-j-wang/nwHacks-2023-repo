@@ -1,13 +1,17 @@
 td {
     text-align: center;
-   
+    border: 0;
 }
 
 table {
     text-align: center;
     margin: auto;
+    border: 0;
+    
+}
+/* background-image: url("https://freedesignfile.com/upload/2012/09/light-Circle1.jpg");  */
+body {
+    background-image: url("https://t3.ftcdn.net/jpg/01/44/95/08/360_F_144950847_MBnS1EPJez48nEU7l8UKmT2Pcyy2HPbU.jpg"); 
 }
 
-body {
-    background-image: url("https://freedesignfile.com/upload/2012/09/light-Circle1.jpg"); 
-}
+
