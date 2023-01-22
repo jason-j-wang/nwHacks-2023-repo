@@ -12,5 +12,5 @@ Supports:
 - handball
 
 ## Showcase
-![](https://github.com/jason-j-wang/nwHacks-2023-repo/blob/main/showcase/1.png)
-![](https://github.com/jason-j-wang/nwHacks-2023-repo/blob/main/showcase/2.png)
+![](https://github.com/jason-j-wang/nwHacks-2023-repo/blob/main/showcase/3.png)
+![](https://github.com/jason-j-wang/nwHacks-2023-repo/blob/main/showcase/4.png)
