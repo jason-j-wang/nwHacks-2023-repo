@@ -80,7 +80,7 @@ async function loadPage(record, game_idx) {
 	document.getElementById("time").innerHTML= time;
 
 	// load logo
-	/*
+	
 	if (record['data'][game_idx]['home_team']['has_logo']) {
 		let homeLogoSrc = record['data'][game_idx]['home_team']['logo'];
 		document.getElementById("team1").getElementsByTagName("homeLogo").src=homeLogoSrc;
@@ -89,7 +89,7 @@ async function loadPage(record, game_idx) {
 		let awayLogoSrc = record['data'][game_idx]['away_team']['logo'];
 		document.getElementById("team2").getElementsByTagName("awayLogo").src=awayLogoSrc;
 	}
-	*/
+	
 
 	// get list of current games for dropdown
 	const dropDown = document.getElementById("dropdown");
