@@ -83,11 +83,12 @@ async function loadPage(record, game_idx) {
 	
 	if (record['data'][game_idx]['home_team']['has_logo']) {
 		let homeLogoSrc = record['data'][game_idx]['home_team']['logo'];
-		document.getElementById("team1").getElementsByTagName("homeLogo").src=homeLogoSrc;
+		console.log(homeLogoSrc);
+		document.getElementById("homeLogo").src=homeLogoSrc;
 	}
 	if (record['data'][game_idx]['away_team']['has_logo']) {
 		let awayLogoSrc = record['data'][game_idx]['away_team']['logo'];
-		document.getElementById("team2").getElementsByTagName("awayLogo").src=awayLogoSrc;
+		document.getElementById("awayLogo").src=awayLogoSrc;
 	}
 	
 
@@ -106,13 +107,13 @@ async function loadPage(record, game_idx) {
 	}
 }
 
-async function runAll() {
+async function runAll() { // o rmaybe here
 	var game_idx = await findGame(record);
 	console.log(record);
 	await loadPage(record, game_idx);
 }
 
-async function startRun() {
+async function startRun() { // try here
 	api_key = config.API_KEY;
 	record = await fetchData();
 	document.getElementById("submit").addEventListener("click", setGame);
