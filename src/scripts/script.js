@@ -18,7 +18,6 @@ async function setGame() {
 	await chrome.storage.local.set({
 		'game_id': id
 	});
-	console.log(id);
 	runAll();
 }
 
@@ -28,25 +27,21 @@ async function findGame(record) {
 		var game_id = await chrome.storage.local.get(['game_id']);
 	}
 	catch {
-		console.log('game id not found, setting to 0')
 		await chrome.storage.local.set({
 			'game_id': record['data'][0]['id']
 		});
 		return 0;
 	}
 	game_id = game_id.game_id;
-	console.log('game id is ' + game_id);
 	for (let idx = 0; idx < num_games; idx++) {
 		var cur_game_id = record['data'][idx]['id']
 		if (cur_game_id == game_id) {
 			await chrome.storage.local.set({
 				'game_id': cur_game_id
 			});
-			console.log('game found at idx ' + idx);
 			return idx;
 		}
 	}
-	console.log('game not found, returning idx 0')
 	await chrome.storage.local.set({
 		'game_id': record['data'][0]['id']
 	});
@@ -92,7 +87,6 @@ async function loadPage(record, game_idx) {
 
 async function runAll() {
 	var game_idx = await findGame(record);
-	console.log(record);
 	await loadPage(record, game_idx);
 }
 
