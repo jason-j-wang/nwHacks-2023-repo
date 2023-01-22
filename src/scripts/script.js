@@ -75,22 +75,24 @@ async function loadPage(record, game_idx) {
 	var currentScore = home_score + " - " + away_score;
 	document.getElementById("score").innerHTML= currentScore;
 
-	// time period/half...etc
+	// time
 	var time = record['data'][game_idx]['status_more'];
 	document.getElementById("time").innerHTML= time;
 
 	// load logo
-	
 	if (record['data'][game_idx]['home_team']['has_logo']) {
 		let homeLogoSrc = record['data'][game_idx]['home_team']['logo'];
-		console.log(homeLogoSrc);
 		document.getElementById("homeLogo").src=homeLogoSrc;
 	}
 	if (record['data'][game_idx]['away_team']['has_logo']) {
 		let awayLogoSrc = record['data'][game_idx]['away_team']['logo'];
 		document.getElementById("awayLogo").src=awayLogoSrc;
 	}
-	
+
+	document.getElementById("refresh").onclick = function() {
+		startRun();
+		console.log("click");
+	};
 
 	// get list of current games for dropdown
 	const dropDown = document.getElementById("dropdown");
@@ -107,17 +109,17 @@ async function loadPage(record, game_idx) {
 	}
 }
 
-async function runAll() { // o rmaybe here
+async function runAll() {
 	var game_idx = await findGame(record);
 	console.log(record);
 	await loadPage(record, game_idx);
 }
 
-async function startRun() { // try here
+async function startRun() {
 	api_key = config.API_KEY;
 	record = await fetchData();
 	document.getElementById("submit").addEventListener("click", setGame);
-	runAll();
+	await runAll();
 }
 
 var api_key;
