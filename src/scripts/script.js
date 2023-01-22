@@ -88,11 +88,19 @@ async function loadPage(record, game_idx) {
 		let awayLogoSrc = record['data'][game_idx]['away_team']['logo'];
 		document.getElementById("awayLogo").src=awayLogoSrc;
 	}
+}
 
-	document.getElementById("refresh").onclick = function() {
-		startRun();
-		console.log("click");
-	};
+async function runAll() {
+	var game_idx = await findGame(record);
+	console.log(record);
+	await loadPage(record, game_idx);
+}
+
+async function startRun() {
+	api_key = config.API_KEY;
+	record = await fetchData();
+	document.getElementById("submit").addEventListener("click", setGame);
+	await runAll();
 
 	// get list of current games for dropdown
 	const dropDown = document.getElementById("dropdown");
@@ -107,19 +115,10 @@ async function loadPage(record, game_idx) {
 
 		dropDown.appendChild(option);
 	}
-}
-
-async function runAll() {
-	var game_idx = await findGame(record);
-	console.log(record);
-	await loadPage(record, game_idx);
-}
-
-async function startRun() {
-	api_key = config.API_KEY;
-	record = await fetchData();
-	document.getElementById("submit").addEventListener("click", setGame);
-	await runAll();
+	document.getElementById("refresh").onclick = async function() {
+		record = await fetchData();
+		runAll();
+	};
 }
 
 var api_key;
