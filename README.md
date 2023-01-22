@@ -1,4 +1,6 @@
 # nwHacks 2023 Project Submission
+### Jason Wang, Stevan Zhuang, Cindy Cui
+
 ## Live Sports Scores
 A Chrome extension that displays the live scores and status of sports games
 
