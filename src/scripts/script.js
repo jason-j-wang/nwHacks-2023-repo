@@ -76,12 +76,12 @@ async function loadPage(record, game_idx) {
 
 	// load logo
 	if (record['data'][game_idx]['home_team']['has_logo']) {
-		let homeLogoSrc = record['data'][game_idx]['home_team']['logo']
-		document.getElementById("homeLogo").src=homeLogoSrc;
+		let homeLogoSrc = record['data'][game_idx]['home_team']['logo'];
+		document.getElementById("team1").getElementsByTagName("homeLogo").src=homeLogoSrc;
 	}
 	if (record['data'][game_idx]['away_team']['has_logo']) {
-		let awayLogoSrc = record['data'][game_idx]['away_team']['logo']
-		document.getElementById("awayLogo").src=awayLogoSrc;
+		let awayLogoSrc = record['data'][game_idx]['away_team']['logo'];
+		document.getElementById("team2").getElementsByTagName("awayLogo").src=awayLogoSrc;
 	}
 
 	// get list of current games for dropdown
