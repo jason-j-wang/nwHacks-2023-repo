@@ -14,8 +14,14 @@ async function fetchData() {
 	return record;
 }
 
-function setGame() {
-	
+async function setGame() {
+	var options = document.getElementById("dropdown");
+	var id = options[options.selectedIndex].id;
+	await chrome.storage.local.set({
+		'game_id': id
+	});
+	console.log(id);
+	runAll();
 }
 
 async function findGame(record) {
@@ -90,6 +96,7 @@ async function loadPage(record, game_idx) {
 	for (let key in allGamesData) {
 		let option = document.createElement("option");
 		option.setAttribute('value', allGamesData[key]['name']);
+		option.id = allGamesData[key]['id'];
 
 		let optionText = document.createTextNode(allGamesData[key]['name']);
 		option.appendChild(optionText);
@@ -99,12 +106,11 @@ async function loadPage(record, game_idx) {
 }
 
 async function runAll() {
-	document.getElementById("submit").addEventListener("click", setGame);
-
 	const record = await fetchData();
 	var game_idx = await findGame(record);
 	console.log(record);
 	await loadPage(record, game_idx);
 }
 
+document.getElementById("submit").addEventListener("click", setGame);
 runAll();
