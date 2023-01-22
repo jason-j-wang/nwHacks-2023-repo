@@ -1,5 +1,3 @@
-var api_key = config.API_KEY;
-
 async function fetchData() {
 	const options = {
 		method: 'GET',
@@ -37,6 +35,7 @@ async function findGame(record) {
 		return 0;
 	}
 	game_id = game_id.game_id;
+	console.log('game id is ' + game_id);
 	for (let idx = 0; idx < num_games; idx++) {
 		var cur_game_id = record['data'][idx]['id']
 		if (cur_game_id == game_id) {
@@ -81,6 +80,7 @@ async function loadPage(record, game_idx) {
 	document.getElementById("time").innerHTML= time;
 
 	// load logo
+	/*
 	if (record['data'][game_idx]['home_team']['has_logo']) {
 		let homeLogoSrc = record['data'][game_idx]['home_team']['logo']
 		document.getElementById("homeLogo").src=homeLogoSrc;
@@ -89,6 +89,7 @@ async function loadPage(record, game_idx) {
 		let awayLogoSrc = record['data'][game_idx]['away_team']['logo']
 		document.getElementById("awayLogo").src=awayLogoSrc;
 	}
+	*/
 
 	// get list of current games for dropdown
 	const dropDown = document.getElementById("dropdown");
@@ -106,11 +107,19 @@ async function loadPage(record, game_idx) {
 }
 
 async function runAll() {
-	const record = await fetchData();
 	var game_idx = await findGame(record);
 	console.log(record);
 	await loadPage(record, game_idx);
 }
 
-document.getElementById("submit").addEventListener("click", setGame);
-runAll();
+async function startRun() {
+	api_key = config.API_KEY;
+	record = await fetchData();
+	document.getElementById("submit").addEventListener("click", setGame);
+	runAll();
+}
+
+var api_key;
+var record;
+
+startRun();
