@@ -2,7 +2,7 @@
 ### *Jason Wang, Stevan Zhuang, Cindy Cui*
 
 ## Live Sports Scores
-A Chrome extension that displays the live scores and status of current sports games. 
+A Chrome extension that displays the live scores and status of current sports games. \
 Supports:
 - ice hockey
 - basketball
